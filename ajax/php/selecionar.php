@@ -10,7 +10,7 @@ $sql = "SELECT * FROM cursos";
 $executar = mysqli_query($conexao, $sql);
 
 //Exibir dados 
-while ($indece = mysqli_fetch_assoc($executr)){
+while ($indece = mysqli_fetch_assoc($executar)){
     echo $indice["curso"];
 }
 ?>

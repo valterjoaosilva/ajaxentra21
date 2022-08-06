@@ -1,6 +1,6 @@
 <?php
 //Variáveis
-$usuarios = "root";
+$usuario = "root";
 $senha = "";
 $base = "ajax";
 $url = "localhost";
