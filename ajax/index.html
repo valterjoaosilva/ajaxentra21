@@ -13,11 +13,53 @@
                var valor = document.getElementById("valor").value;
                
             //    ajax
-            var ajax = XMLHttpRequest();
+            var ajax = new XMLHttpRequest();
             ajax.open("POST", "php/cadastrar.php", true);
             ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            ajax.send("curso="+curso+"&valor="+$valor);
+            ajax.send("curso="+curso+"&valor="+valor);
+
+            /*
+            readyState
+            0 - não inicializado
+            1 - conexão estabelecida
+            2 - conexão reconhecida
+            3 - Processamnto 
+            4 - Pronto
+            status
+            200 ok
+            403 conexão perdida
+            404 não encontrado
+            */
+            window.alert(ajax.readyState+""+ajax.status);
             }
+            // atualizar dados
+            selecionar();
+            
+            //    selecionar dados
+            function selecionar(){
+                //Ajax
+                var ajax = new XMLHttpRequest();
+
+                //validar a conexão
+
+                ajax.onreadystatechange = function () {
+
+                    if((this.readyState == 4)&& (this.status == 200)){
+                        document.getElementById("tabela").innerHTML =this.responseText;
+                        }else{
+                            document.getElementById("tabela").innerHTML = "falha ao obter os dasdos.";
+                        }
+                    }
+                    //obter dados
+                    ajax.open("GET","php/selecionar.php",true);
+                    ajax.send();
+                    
+            }
+            //ao carregar  arquivo
+            window.onload = function (){
+                selecionar();
+            }
+            
         </script>
     </head>
     <body>
@@ -28,7 +70,9 @@
             <input type="number" placeholder="Valor" name="valor" id="valor">
             <input type="button" value="Cadastrar" onclick="cadastrar()">        
         
-        </form>
+     </form>
+     <!-- tabela -->
+     <div id="tabela"></div>
     </body>
 
 

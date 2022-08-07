@@ -1,6 +1,6 @@
 <?php
 //Conexão
-include("conexão.php");
+include("conexao.php");
 
 //sql
 $sql = "SELECT * FROM cursos";
@@ -10,7 +10,7 @@ $sql = "SELECT * FROM cursos";
 $executar = mysqli_query($conexao, $sql);
 
 //Exibir dados 
-while ($indece = mysqli_fetch_assoc($executar)){
-    echo $indice["curso"];
+while ($indice = mysqli_fetch_assoc($executar)){
+    echo $indice["curso"]."<hr>";
 }
 ?>

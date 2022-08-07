@@ -1,12 +1,12 @@
 <?php
-include("conexão.php");
+include("conexao.php");
 
 
 $codigo = $_GET["codigo"];
 
 $sql = "DELETE FROM cursos WHERE codigo = $codigo";
 
-mysqli_query($conexão, $sql);
+mysqli_query($conexao, $sql);
 
 
 ?>
