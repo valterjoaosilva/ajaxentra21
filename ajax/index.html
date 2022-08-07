@@ -12,8 +12,11 @@
                var curso = document.getElementById("curso").value;
                var valor = document.getElementById("valor").value;
                
-                window.alert("O curso escolhido foi "+ curso +"e o valor é: "+ valor)
-
+            //    ajax
+            var ajax = XMLHttpRequest();
+            ajax.open("POST", "php/cadastrar.php", true);
+            ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            ajax.send("curso="+curso+"&valor="+$valor);
             }
         </script>
     </head>
